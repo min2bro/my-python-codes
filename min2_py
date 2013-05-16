@@ -1,0 +1,193 @@
+# Temperature converter
+# Description
+# Write two functions that will convert temperatures back and forth from the Celsius and Fahrenheit temperature scales. The formulas for making the conversion are as follows:
+  # Tc=(5/9)*(Tf-32)
+  # Tf=(9/5)*Tc+32
+# where Tc is the Celsius temperature and Tf is the Fahrenheit temperature. More information and further descriptions of how to do the conversion can be found at this NASA Webpage. If you finish this assignment quickly, add a function to calculate the wind chill.
+# Input
+# Your program should ask the user to input a temperature and then which conversion they would like to perform.
+# Sample session
+# Temperature converter
+# Enter a temperature: 20
+# Convert to (F)ahrenheit or (C)elsius? F
+ # 20 C = 68 F
+
+temp = raw_input('Enter Temperature:')
+choice = raw_input('Convert to (F)ahrenheit or (C)elsius ?')
+if choice == 'F':
+   print   temp + ' C = ' + str((9*int(temp)/5)+32) + ' F'
+else:
+   print  temp+ ' F = ' + str((int(temp)-32)*5/9) + ' C'
+
+
+# Guessing game
+
+# Description
+
+# The computer will pick a number between 1 and 100. (You can choose any high number you want.) The purpose of the game is to guess the number the computer picked in as few guesses as possible.
+
+# Input
+
+# The user will enter his or her guess until the correct number is guessed.
+
+# Output
+
+# The program will keep asking the user to guess until he or she gets the number correct. Then the program will print how many guesses were required.
+
+# Sample session
+
+# Time to play a guessing game.
+
+# Enter a number between 1 and 100: 62
+# Too high. Try again: 32
+# Too low. Try again: 51
+# Too low. Try again: 56
+
+# Congratulations! You got it in 4 guesses.
+
+from random import randint
+choice = randint(1,10)
+print choice
+for x in range(1,10):
+  strin = raw_input('Enter your choice:')
+  if int(choice) == int(strin):
+    if x > 1:
+      print 'you got it in ' + str(x) +' tries'
+      break
+    else:
+      print 'you got it in first try'
+      break  
+  else:
+    print 'Keep Trying'
+
+# Sum square difference
+# The sum of the squares of the first ten natural numbers is,
+
+# 12 + 22 + ... + 102 = 385
+# The square of the sum of the first ten natural numbers is,
+
+# (1 + 2 + ... + 10)2 = 552 = 3025
+# Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is 3025  385 = 2640.
+
+# Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
+
+x = raw_input('Enter your choice for n natural number?: ')
+y = int(x)
+squaresum = (y*(y+1)*(2*y+1))/6
+sum = (y*(y+1)/2)*(y*(y+1)/2)
+print sum - squaresum
+
+
+# 1000-digit Fibonacci number
+# Problem 25
+# The Fibonacci sequence is defined by the recurrence relation:
+
+# Fn = Fn1 + Fn2, where F1 = 1 and F2 = 1.
+# Hence the first 12 terms will be:
+
+# F1 = 1
+# F2 = 1
+# F3 = 2
+# F4 = 3
+# F5 = 5
+# F6 = 8
+# F7 = 13
+# F8 = 21
+# F9 = 34
+# F10 = 55
+# F11 = 89
+# F12 = 144
+# The 12th term, F12, is the first term to contain three digits.
+
+# What is the first term in the Fibonacci sequence to contain 1000 digits?
+
+z=raw_input('Enter the length of fibonacci series?: ')
+y=int(z)
+a, b = 0, 1
+for x in range(1,y+1):
+       # print b,
+       a, b = b, a+b
+       if len(str(b)) == 1000:
+         print b
+         break
+
+  
+
+# Sum of amicable number
+
+def divisor_sum(x):
+# x=raw_input('Enter the number?: ')
+  y=int(x)
+  sum=0
+  for i in range(1,y):
+    if(y%i == 0):
+      sum+=i
+  return sum
+
+import time
+sum1=0
+start = time.time()
+for t in range(1,10000):
+  call = divisor_sum(t)
+  call1= divisor_sum(call)
+  if call1 == t:
+    sum1 = sum1+int(call1)
+elapsed = time.time() - start
+print("%s found in %s seconds") % (sum1,elapsed)
+
+# 10001st prime
+# Problem 7
+# By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see that the 6th prime is 13.
+
+# What is the 10 001st prime number?
+
+def isPrime(y):
+  i=2
+  while i < y:
+    if y%i == 0:
+      return 0
+      exit()
+    i=i+1
+  return 1
+
+x= raw_input('Enter the position 1st,2nd,..nth prime number you are looking for?: ')
+z=int(x)
+# for l in range(2,z)
+count = 1
+n = 2
+while count <= z:
+  if isPrime(n) == 1:
+    if count == z:
+      print n
+    count +=1
+  n=n+1
+
+
+
+
+# Factorial digit sum
+# Problem 20
+# n! means n  (n  1)  ...  3  2  1
+
+# For example, 10! = 10  9  ...  3  2  1 = 3628800,
+# and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
+
+# Find the sum of the digits in the number 100!
+x= raw_input('Enter the number whose factorial you wanna calculate?: ')
+y=int(x)
+n=1
+fact=1
+while n < y:
+  fact=fact*(n+1)
+  n=n+1
+# print fact
+sum=0
+len = len(str(fact))
+strg = str(fact)
+for i in range(1,len+1):
+  # print int(strg[i-1])
+  sum=sum+int(strg[i-1])
+print sum
+
+
+
