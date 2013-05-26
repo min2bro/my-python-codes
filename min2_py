@@ -191,3 +191,73 @@ print sum
 
 
 
+# Factorial of a number
+x= raw_input('Enter the number whose factorial you wanna calculate?: ')
+y=int(x)
+fact = 1
+while y > 1:
+  fact = fact*y * (y-1)
+  y=y-2
+print fact
+
+# find temperature of a city using weather api 
+import urllib2
+import json
+response = urllib2.urlopen('http://api.openweathermap.org/data/2.5/weather?q=Mumbai,in')
+html = response.read()
+# print html
+j = json.loads(html)
+kelvin = j["main"]["temp_min"]
+celsius = kelvin - 273
+print celsius
+
+
+
+# Self powers
+# The series, 11 + 22 + 33 + ... + 1010 = 10405071317.
+
+# Find the last ten digits of the series, 11 + 22 + 33 + ... + 10001000.
+sum = 0
+for i in range(1,1001):
+  sum = sum + i**i
+num = str(sum)
+for j in range(len(num)-10,len(num)):
+  print num[j],
+
+
+#Power digit sum
+# 215 = 32768 and the sum of its digits is 3 + 2 + 7 + 6 + 8 = 26.
+
+# What is the sum of the digits of the number 21000?
+
+  num = 2**1000
+str1 = len(str(num))
+str2=str(num)
+sum = 0
+for i in range(1,str1+1):
+  sum = sum + int(str2[i-1])
+print sum
+
+
+# 145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
+# Find the sum of all numbers which are equal to the sum of the factorial of their digits.
+# Note: as 1! = 1 and 2! = 2 are not sums they are not included.
+def factorial(x):
+  y=int(x)
+  n=1
+  fact=1
+  while n < y:
+    fact=fact*(n+1)
+    n=n+1
+  return fact
+
+sum1 = 0
+for j in range(10,100000):
+  str1 = str(j)
+  length = len(str1)
+  sum = 0
+  for i in range(1,length+1):
+    sum = sum + factorial(str1[i-1])
+  if sum == j:
+    sum1 = sum1 + sum
+print sum1
